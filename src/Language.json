@@ -1,0 +1,11 @@
+{
+  "Polish": {
+    "singin": {
+      "logowanie": "Logowanie",
+      "imie": "Imie",
+      "nazwisko": "Nazwisko",
+      "email": "Adres Email",
+      "haslo": "Haslo"
+    }
+  }
+}
