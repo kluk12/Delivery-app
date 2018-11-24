@@ -2,21 +2,18 @@ import Navbar from "../navbar/navbar";
 import React, { Component } from "react";
 import { Grid, Paper, List, ListItemText } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import Footer from "./footer";
+// import Footer from "./footer";
 import { categoria, products } from "./../data/stone";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
 import FolderIcon from "@material-ui/icons/Folder";
-
 import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import ListItem from "@material-ui/core/ListItem";
-
 // import _ from "lodash";
 import { Consumer } from "./../Context";
 import Rightpanel from "./rightpanel";
@@ -25,14 +22,15 @@ const styles = theme => ({
   Paper: {
     padding: 20,
 
-    overflow: "auto",
+    overflowY: "auto",
     margin: "10px auto"
     // height: "80vh"
   },
   Paper2: {
-    padding: 20,
+    // padding: "3%",
+    paddingLeft: "3%",
     margin: 10,
-    height: "80vh",
+    height: "100vh",
     overflowY: "auto",
     display: Grid
   },
@@ -108,7 +106,7 @@ class plist extends Component {
             <div>
               <Navbar />
               <Grid container>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   {/* left panel */}
                   <Paper className={classes.Paper}>
                     <div className={classes.root}>
@@ -180,7 +178,7 @@ class plist extends Component {
                       </FormGroup>
 
                       <Grid container spacing={16}>
-                        <Grid item xs={12} md={10}>
+                        <Grid item xs={12} sm={10} md={10}>
                           <Typography variant="title" className={classes.title}>
                             Producty
                           </Typography>
@@ -235,7 +233,7 @@ class plist extends Component {
                     })}
                   </Paper>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} ms={10} md={8}>
                   {/* <Footer Cat={categoria} onselect /> */}{" "}
                   <Link to="/Final_form">
                     <Button

@@ -31,15 +31,11 @@ class App extends Component {
     DateEnd: "",
     dense: false,
 
-    // chipData: [],
     tabs: null,
     value: 0,
 
     name: null,
     caltegory: null
-  };
-  componentDidMount = () => {
-    // this.setarr();
   };
 
   setarr = () => {
@@ -61,11 +57,9 @@ class App extends Component {
     this.setState({ Radios: event.target.value });
   };
   handleChangeDateEnd = event => {
-    // console.log(event);
     this.setState({ DateStart: event.target.value });
   };
   handleChangeDateStart = event => {
-    // console.log(event);
     this.setState({ DateEnd: event.target.value });
   };
   handleChangetabs = (event, value) => {
@@ -105,7 +99,6 @@ class App extends Component {
     this.setState({ secondary: event.target.checked });
   };
   handleile = i => event => {
-    console.log(i);
     this.setState(state => {
       const rp = [...state.rp];
       rp[i].ile = event.target.value;
@@ -114,7 +107,7 @@ class App extends Component {
   };
   handleopis = i => event => {
     event.persist();
-    console.log(i, event.target.value);
+
     this.setState(state => {
       const rp = [...state.rp];
       rp[i].opis = event.target.value;

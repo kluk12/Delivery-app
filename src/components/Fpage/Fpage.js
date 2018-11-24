@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
-import { BrowserRouter, Link } from "react-router-dom";
+// import { BrowserRouter, Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import { Consumer } from "../Context";
 import { FormControl, InputLabel, Select, Paper } from "@material-ui/core";
 import Navbar from "../navbar/navbar";
-import { Button } from "@material-ui/core/Button";
-
+import Button from "@material-ui/core/Button";
+import Table from "./Table";
+import { Link } from "react-router-dom";
+import Cart from "./cart";
 const styles = theme => ({
   container: {
     display: "flex",
@@ -17,46 +18,57 @@ const styles = theme => ({
   },
   textField: {
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing.unit,
+    [theme.breakpoints.down("xs")]: {
+      width: "80%",
+      margin: `5% 10%`
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: "2% 5%",
+      width: "40%"
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: "3% 5%",
+      width: "39%"
+    },
+    [theme.breakpoints.up("lg")]: { margin: `2% 4.5%`, width: "24%" }
+  },
+  Paper: {
+    // padding: 20,
+    // margin: "5% auto",
+    // height: "80vh",
+    overflowY: "auto",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%"
+      // margin: `auto`
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: "5% 5%",
+      width: "100%"
+    },
+    // [theme.breakpoints.up("xs")]: {
+    //   margin: "20px 5%",
+    //   width: "89%"
+    // },
+    [theme.breakpoints.up("md")]: {
+      margin: "20px 5%",
+      width: "89%"
+    },
+    [theme.breakpoints.up("lg")]: { margin: `2% 4.5%`, width: "90%" }
   },
   dense: {
     marginTop: 16
   },
   button: {
-    margin: theme.spacing.unit
+    margin: "30px auto",
+    display: "block"
   },
   menu: {
     width: 200
   }
 });
 
-const currencies = [
-  {
-    value: "USD",
-    label: "$"
-  },
-  {
-    value: "EUR",
-    label: "€"
-  },
-  {
-    value: "BTC",
-    label: "฿"
-  },
-  {
-    value: "JPY",
-    label: "¥"
-  }
-];
-
-class OutlinedTextFields extends React.Component {
-  state = {
-    name: "Cat in the Hat",
-    age: "",
-    multiline: "Controlled",
-    currency: "EUR"
-  };
-
+class Fpage extends React.Component {
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
@@ -84,34 +96,17 @@ class OutlinedTextFields extends React.Component {
             DateStart,
             DateEnd
           },
-          handleClick,
+
           handleChange,
           handleChangeSelectmiasto,
-          handleChangeSelecttype,
-          handleChangeRadios,
-          handleChangeDateEnd,
-          handleChangeDateStart
+          handleChangeSelecttype
         }) => {
           return (
             <Fragment>
               <Navbar Title="Edycja danych" />
-              {/* {console.log(
-                Imie,
-                Nazwisko,
-                Pseudonim,
-                Miasto,
-                Nrmieszkania,
-                Email,
 
-                type,
-                Tytuł,
-                Radios,
-                Opis,
-                DateStart,
-                DateEnd
-              )} */}
               <form className={classes.container} noValidate autoComplete="off">
-                <Paper>
+                <Paper className={classes.Paper}>
                   <TextField
                     id="outlined-name"
                     className={classes.textField}
@@ -142,7 +137,7 @@ class OutlinedTextFields extends React.Component {
                   <TextField
                     id="outlined-select-currency"
                     select
-                    label="Select"
+                    label="Wybierz"
                     className={classes.textField}
                     value={Miasto}
                     onChange={handleChangeSelectmiasto}
@@ -151,7 +146,6 @@ class OutlinedTextFields extends React.Component {
                         className: classes.menu
                       }
                     }}
-                    // helperText="Please select your currency"
                     margin="normal"
                     variant="outlined"
                   >
@@ -181,11 +175,9 @@ class OutlinedTextFields extends React.Component {
                     margin="normal"
                     variant="outlined"
                   />{" "}
-                </Paper>
-                {/* form 2
+                  {/* form 2
 
               */}
-                <Paper>
                   <TextField
                     id="outlined-name"
                     className={classes.textField}
@@ -198,7 +190,7 @@ class OutlinedTextFields extends React.Component {
                   <TextField
                     id="outlined-select-currency"
                     select
-                    label="Select"
+                    label="Wybierz"
                     className={classes.textField}
                     value={type}
                     onChange={handleChangeSelecttype}
@@ -207,7 +199,7 @@ class OutlinedTextFields extends React.Component {
                         className: classes.menu
                       }
                     }}
-                    // helperText="Please select your currency"
+                    // helperText=""
                     margin="normal"
                     variant="outlined"
                   >
@@ -227,8 +219,12 @@ class OutlinedTextFields extends React.Component {
                     onChange={handleChange("Opis")}
                     margin="normal"
                     variant="outlined"
-                  />{" "}
+                  />
                 </Paper>
+
+                <Table />
+                <Cart />
+                <br />
                 <Link to="/product">
                   <Button
                     variant="contained"
@@ -247,11 +243,11 @@ class OutlinedTextFields extends React.Component {
   }
 }
 
-OutlinedTextFields.propTypes = {
+Fpage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(OutlinedTextFields);
+export default withStyles(styles)(Fpage);
 const miasta = [
   {
     id: 0,
@@ -313,8 +309,4 @@ const typee = [
     id: 3,
     name: "Zakupy"
   }
-  //   {
-  //     id: 4,
-  //     name: "Gdańsk"
-  //   },
 ];

@@ -51,7 +51,14 @@ class Rightpanel extends Component {
                 spacing={0}
               >
                 {/* <Input2 /> */}
-                <Grid item xs={12} md={12} className={classes.border}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  lg={12}
+                  className={classes.border}
+                >
                   <p className={classes.p}>{p.label}</p>
                   <TextField
                     label="Ilość"
@@ -106,7 +113,7 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2
   },
   button: {
-    width: "15%",
+    width: "13%",
     "&:hover": {
       color: red[800]
     }
@@ -114,11 +121,11 @@ const styles = theme => ({
   },
   input: {
     margin: theme.spacing.unit,
-    width: "30%"
+    width: "22%"
   },
   input2: {
     margin: theme.spacing.unit,
-    width: "25%"
+    width: "22%"
   },
   border: {
     borderwidth: "5px",
