@@ -214,7 +214,7 @@ class indexform extends Component {
                           id="standard-name"
                           label="Imie"
                           className={classes.textField}
-                          value={this.Imie}
+                          value={Imie}
                           onChange={handleChange("Imie")}
                           margin="normal"
                         />
@@ -299,8 +299,8 @@ class indexform extends Component {
                     <Grid item xs={12} md={12}>
                       <TextField
                         id="standard-name"
-                        label="Tytuł"
                         className={classes.formTitle}
+                        label="Tytuł"
                         value={Tytuł}
                         onChange={handleChange("Tytuł")}
                         margin="normal"
@@ -428,9 +428,9 @@ class indexform extends Component {
                   <Grid item xs={12} md={12}>
                     <TextField
                       id="standard-multiline-flexible"
-                      label="Opis"
                       multiline
                       rows="2"
+                      label="Opis"
                       value={Opis}
                       onChange={handleChange("Opis")}
                       className={classes.formOpis}

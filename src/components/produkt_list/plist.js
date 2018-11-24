@@ -20,6 +20,7 @@ import ListItem from "@material-ui/core/ListItem";
 // import _ from "lodash";
 import { Consumer } from "./../Context";
 import Rightpanel from "./rightpanel";
+import { Link } from "react-router-dom";
 const styles = theme => ({
   Paper: {
     padding: 20,
@@ -235,7 +236,16 @@ class plist extends Component {
                   </Paper>
                 </Grid>
                 <Grid item xs={12}>
-                  {/* <Footer Cat={categoria} onselect /> */}
+                  {/* <Footer Cat={categoria} onselect /> */}{" "}
+                  <Link to="/Final_form">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      Dalej
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </div>

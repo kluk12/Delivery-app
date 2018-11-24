@@ -8,6 +8,8 @@ import { Provider } from "./components/Context";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import _ from "lodash";
 import rightpanel from "./components/produkt_list/rightpanel";
+import Fpage from "./components/Fpage/Fpage";
+
 class App extends Component {
   state = {
     rp: [], //{ key: 0, label: "", ile: 0, opis: "", active: true }
@@ -176,7 +178,7 @@ class App extends Component {
               <Route exact path="/" component={Indexform} />
 
               <Route path="/product" component={Product_list} />
-              <Route path="/test" component={rightpanel} />
+              <Route path="/Final_form" component={Fpage} />
             </Switch>
           </Fragment>
         </BrowserRouter>
