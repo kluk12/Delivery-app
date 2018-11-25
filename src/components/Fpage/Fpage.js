@@ -5,7 +5,13 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import { Consumer } from "../Context";
-import { FormControl, InputLabel, Select, Paper } from "@material-ui/core";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  Paper,
+  Grid
+} from "@material-ui/core";
 import Navbar from "../navbar/navbar";
 import Button from "@material-ui/core/Button";
 import Table from "./Table";
@@ -224,16 +230,23 @@ class Fpage extends React.Component {
 
                 <Table />
                 <Cart />
-                <br />
-                <Link to="/product">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    Cofnij
-                  </Button>
-                </Link>
+
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                >
+                  <Link to="/product">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      Cofnij
+                    </Button>
+                  </Link>
+                </Grid>
               </form>
             </Fragment>
           );

@@ -50,6 +50,9 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit
   },
+  button2: {
+    margin: "20px 46%"
+  },
   formControl: {
     margin: theme.spacing.unit,
     minWidth: 120
@@ -233,13 +236,13 @@ class plist extends Component {
                     })}
                   </Paper>
                 </Grid>
-                <Grid item xs={12} ms={10} md={8}>
+                <Grid item xs={12} ms={12} md={12} lg={12}>
                   {/* <Footer Cat={categoria} onselect /> */}{" "}
                   <Link to="/Final_form">
                     <Button
                       variant="contained"
                       color="primary"
-                      className={classes.button}
+                      className={classes.button2}
                     >
                       Dalej
                     </Button>
